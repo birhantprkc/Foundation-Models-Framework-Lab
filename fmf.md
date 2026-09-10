@@ -1,11 +1,38 @@
 ## Xcode 27 Foundation Models API Delta
 
-Source: Xcode 27.0 beta 6 (build `27A5252f`) FoundationModels Swift
+Source: Xcode 27.0 Release Candidate (build `27A266a`) FoundationModels Swift
 interface (`9705` lines), synthesized from the iOS SDK public module surface
 with an iOS 26.0 deployment target.
 
 This section records the new public API shape found in Xcode 27. The raw Swift
-interface reference below is refreshed from the beta 6 SDK.
+interface reference below is verified against the Release Candidate SDK.
+
+### Release Candidate changes
+
+Compared with Xcode 27 beta 6 (build `27A5252f`):
+
+- The public Foundation Models interface is unchanged. Both SDKs produce
+  9,705-line exports with `swift-synthesize-interface`, targeting
+  `arm64-apple-ios26.0`. Their normalized content matches the raw reference
+  below, so there are no declarations or signatures to update.
+- The iOS SDK's `.swiftinterface` module flags and `.tbd` target lists add
+  `arm64e.x1` alongside `arm64e`. The exported symbols are unchanged; this
+  architecture metadata does not require a Foundation Models source migration.
+
+Verified on September 10, 2026, using the installed Developer Documentation
+release `2023` and Apple's live DocC JSON. The
+[Core AI model guide](https://developer.apple.com/documentation/foundationmodels/running-a-core-ai-model-in-a-foundation-models-session)
+still uses `CoreAILanguageModel` from the separate `coreai-models` package.
+
+The [Xcode 27 RC release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+describe the Foundation Models Instrument for inspecting instructions, prompts,
+responses, token usage, and inference performance. This is a tooling note,
+separate from the SDK interface comparison.
+
+An unchanged interface does not establish identical model output. Apple's
+[prompt-versioning guide](https://developer.apple.com/documentation/foundationmodels/updating-prompts-for-new-model-versions)
+recommends comparing responses when the underlying model changes and updating
+prompts where needed.
 
 ### Beta 6 changes
 
